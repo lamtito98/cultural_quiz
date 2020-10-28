@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'custum_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget
@@ -96,7 +95,7 @@ class _AboutState extends State<About>
                           openUrl('https://www.instagram.com/');
                         },
                         child: new Container(
-                          child: Image.asset('images/instagram.png',height: 60.0, width: 50.0,),
+                          child: Image.asset('images/instagram.png',height: 40.0, width: 50.0,),
                         ),
 
                       ),
@@ -112,7 +111,7 @@ class _AboutState extends State<About>
                           openUrl('https://www.linkedin.com/');
                         },
                         child: new Container(
-                          child: Image.asset('images/linkedin.png',height: 60.0, width: 50.0,),
+                          child: Image.asset('images/linkedin.png',height: 40.0, width: 50.0,),
                         ),
 
                       ),
@@ -127,7 +126,7 @@ class _AboutState extends State<About>
                           openUrl('https://www.gmail.com/');
                         },
                         child: new Container(
-                          child: Image.asset('images/gmail.png',height: 60.0, width: 50.0,),
+                          child: Image.asset('images/gmail.png',height: 40.0, width: 50.0,),
                         ),
 
                       ),
