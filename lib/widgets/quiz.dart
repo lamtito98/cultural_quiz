@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custum_text.dart';
 import 'package:cultural_quiz/models/questions.dart';
-import 'dart:math';
 
 class Quiz extends StatefulWidget
 {
@@ -18,7 +16,7 @@ class _QuizState extends State<Quiz>
 
   Questions questions;
 
-  List<Questions> QuestionsList = [
+  List<Questions> questionsList = [
     new Questions('What is the most consumed drink in the world?', 'The tea', 'The Bier', 'The Coca'),
     new Questions('What French cyclist was nicknamed "the badger"?', 'Bernard Hinault', 'Raymond Poulidor', 'Laurent Fignon'),
     new Questions('What is the name of the mountain range that crosses Slovakia, Poland, Ukraine and Romania?', 'Carpathians', 'Dolomites', 'Alps'),
@@ -40,9 +38,8 @@ class _QuizState extends State<Quiz>
   void initState()
   {
     super.initState();
-    final _random = new Random();
-    QuestionsList.shuffle();
-    questions = QuestionsList[index];
+    questionsList.shuffle();
+    questions = questionsList[index];
   }
 
 
@@ -58,7 +55,7 @@ class _QuizState extends State<Quiz>
         actions: <Widget> [
           Padding(
             padding: EdgeInsets.only(right: 20.0),
-            child: Text('${score}',
+            child: Text('$score',
               style: TextStyle(
                   fontFamily: 'Segoe UI',
                   fontSize: 40.0,
@@ -314,11 +311,11 @@ class _QuizState extends State<Quiz>
 
 
   void updateQuiz(){
-    if(index < QuestionsList.length)
+    if(index < questionsList.length)
       {
         index++;
         setState((){
-          questions = QuestionsList[index];
+          questions = questionsList[index];
         });
       }
   }
