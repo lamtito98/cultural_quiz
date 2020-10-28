@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'custum_text.dart';
 
 class Setting extends StatefulWidget
 {
