@@ -207,7 +207,7 @@ class _Home extends State<Home> {
 
   Route _createRoute(var route){
     return PageRouteBuilder(
-      transitionDuration: Duration(milliseconds: 700),
+      transitionDuration: Duration(milliseconds: 650),
         pageBuilder: (context, animation, secondaryAnimation) =>route,
         transitionsBuilder: (context, animation, animationTime, child){
 

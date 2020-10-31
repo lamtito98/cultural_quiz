@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:cultural_quiz/models/questions.dart';
 
@@ -31,8 +32,10 @@ class _QuizState extends State<Quiz>
 
   int index= 0;
   int score = 0;
-  int compteur = 0;
+  int timer = 20;
   int life = 5;
+  String showTimer = '20';
+  bool cancelTimer = false;
 
 
   void initState()
@@ -40,8 +43,31 @@ class _QuizState extends State<Quiz>
     super.initState();
     questionsList.shuffle();
     questions = questionsList[index];
+    startTimer();
   }
 
+  void startTimer() async{
+    const second = Duration(seconds: 1);
+    Timer.periodic(second,(Timer t)
+    {
+      setState((){
+        if(timer<1){
+          t.cancel();
+          updateQuiz();
+          life--;
+
+        }
+        else if (cancelTimer == true){
+          t.cancel();
+        }
+        else
+          {
+            timer = timer -1;
+          }
+        showTimer = timer.toString();
+      });
+    });
+  }
 
 
 
@@ -55,7 +81,7 @@ class _QuizState extends State<Quiz>
         actions: <Widget> [
           Padding(
             padding: EdgeInsets.only(right: 20.0),
-            child: Text('$score',
+            child: Text('Score $score',
               style: TextStyle(
                   fontFamily: 'Segoe UI',
                   fontSize: 40.0,
@@ -69,7 +95,7 @@ class _QuizState extends State<Quiz>
 
           Padding(
             padding: EdgeInsets.only(right: 20.0),
-            child: Icon(Icons.access_alarm)
+            child: Text('$showTimer'+'s')
           ),
         ],
           actionsIconTheme: IconThemeData(
@@ -311,6 +337,8 @@ class _QuizState extends State<Quiz>
 
 
   void updateQuiz(){
+    cancelTimer = false;
+    timer = 20;
     if(index < questionsList.length)
       {
         index++;
@@ -318,5 +346,6 @@ class _QuizState extends State<Quiz>
           questions = questionsList[index];
         });
       }
+    startTimer();
   }
 }

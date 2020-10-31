@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cultural_quiz/widgets/home.dart';
+import 'package:cultural_quiz/widgets/launch_screen.dart';
 
 class MyApp extends StatelessWidget
 {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget
       ),
       debugShowCheckedModeBanner: false,
 
-      home: new Home(),
+      home:new LaunchScreen(),// new Home(),
     );
   }
 }

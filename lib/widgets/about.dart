@@ -80,7 +80,7 @@ class _AboutState extends State<About>
                           openUrl('https://www.facebook.com/');
                         },
                         child: new Container(
-                          child: Image.asset('images/facebook.png',height: 60.0, width: 50.0,),
+                          child: Image.asset('images/facebook.png',height: 40.0, width: 50.0,),
                         ),
 
                       ),
